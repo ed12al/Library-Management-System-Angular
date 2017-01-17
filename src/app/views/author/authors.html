@@ -1,0 +1,35 @@
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>GCIT Library Management System</h1>
+		<p>Welcome to GCIT Library Management System.</p>
+		<h3>Hello Administrator! What do you want to do?</h3>
+	</div>
+	<div class="list-group col-md-3">
+		<a class="list-group-item active" href="#/admin/authors">View All Authors</a>
+		<a class="list-group-item" href="#/admin/publishers">View All Publishers</a>
+		<a class="list-group-item" href="#/admin/books">View All Books</a>
+		<a class="list-group-item" href="#/admin/branches">View All Branches</a>
+		<a class="list-group-item" href="#/admin/borrowers">View All Borrowers</a>
+		<a class="list-group-item" href="#/admin/loans">View All Loans</a><br />
+	</div>
+	<div class="col-md-9">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Author Name"
+				aria-describedby="basic-addon1" ng-model="searchString" ng-change="searchAuthors()">
+		</div>
+		<button class="btn btn-primary" ng-click='openAddAuthorModal()'>Add Author</button>	
+		<div>
+			<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+		</div>
+		<table class="table">
+			<tr><th>#</th><th>Author Name</th><th>View Author</th><th>Edit Author</th><th>Delete Author</th></tr>
+			<tr ng-repeat="a in authors | startFrom: (currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
+				<td>{{$index+1+(currentPage-1)*itemsPerPage}}</td>
+				<td>{{a.authorName}}</td>
+				<td><button class='btn btn-info' ng-click='openViewAuthorModal(a)'>View</button></td>
+				<td><button class='btn btn-success' ng-click='openEditAuthorModal(a)'>Edit</button></td>
+				<td><button class='btn btn-danger' ng-click='openDeleteAuthorModal(a)'>Delete</button></td>
+			</tr>
+		</table>
+	</div>
+</div>

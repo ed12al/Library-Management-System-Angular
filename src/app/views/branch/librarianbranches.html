@@ -1,0 +1,26 @@
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>GCIT Library Management System</h1>
+		<p>Welcome to GCIT Library Management System.</p>
+		<h3>Hello Administrator! What do you want to do?</h3>
+	</div>
+
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Branch Name"
+			aria-describedby="basic-addon1" ng-model="searchString" ng-change="searchBranches()">
+	</div>
+
+	<div>
+		<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+	</div>
+	<table class="table">
+		<tr><th>#</th><th>Branch Name</th><th>View Branch</th><th>Edit Branch</th></tr>
+		<tr ng-repeat="a in branches | startFrom: (currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
+			<td>{{$index+1+(currentPage-1)*itemsPerPage}}</td>
+			<td>{{a.branchName}}</td>
+			<td><button class='btn btn-info' ng-click='openViewBranchModal(a)'>View</button></td>
+			<td><button class='btn btn-success' ng-click='openEditBranchModal(a)'>Edit</button></td>
+		</tr>
+	</table>
+
+</div>

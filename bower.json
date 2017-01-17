@@ -1,0 +1,15 @@
+{
+  "name": "lms",
+  "description": "to be defined",
+  "main": "",
+  "license": "to be defined",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular-resource": "^1.6.1",
+    "bootstrap": "boostrap#^3.3.7",
+    "angular-route": "^1.6.1",
+    "angular": "^1.6.1",
+    "jquery": "^3.1.1"
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>GCIT Library Management System</h1>
+		<p>Welcome to GCIT Library Management System.</p>
+		<h3>Hello Borrower<strong ng-show="borrower"> {{borrower.name}}</strong>! What do you want to do?</h3>
+	</div>
+
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Book Title"
+			aria-describedby="basic-addon1" ng-model="searchString" ng-change="searchBooks()">
+	</div>
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Enter your card number here"
+			aria-describedby="basic-addon1" ng-model="cardNo" ng-change="getBorrower()">
+	</div>
+	<button class="btn btn-primary" ng-click='openReturnBookModal()'>Return Book</button>	
+	<div>
+		<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+	</div>
+	<table class="table">
+		<tr><th>#</th><th>Title</th><th>View Book</th><th>Edit Book</th></tr>
+		<tr ng-repeat="a in books | startFrom: (currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
+			<td>{{$index+1+(currentPage-1)*itemsPerPage}}</td>
+			<td>{{a.title}}</td>
+			<td><button class='btn btn-info' ng-click='openViewBookModal(a)'>View</button></td>
+			<td><button class='btn btn-success' ng-click='openBorrowBookModal(a)'>Borrow</button></td>
+		</tr>
+	</table>
+</div>

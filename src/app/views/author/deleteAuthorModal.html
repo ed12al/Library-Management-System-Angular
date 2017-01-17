@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" >Delete Author</h4>
+</div>
+    <div class="modal-body">
+        <div class='form-group'>
+        <span> Are you sure that you want to delete author <strong>{{author.authorName}}</strong> from the database?</span>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="ok()">Delete</button>
+    <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

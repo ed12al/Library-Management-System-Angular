@@ -1,0 +1,45 @@
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title">Edit Book</h4>
+</div>
+<div class="modal-body">
+	<div class="form-group">
+		<label class="control-label">Enter Book Title:</label>
+		<input type="text" class="form-control" ng-model="book.title">
+	</div>	
+	<div class="form-group">
+		<label class="control-label">Pick a Publisher:</label>
+		<select class="form-control" ng-model="book.publisher" ng-options="p.publisherName for p in allPublishers track by p.publisherId">
+			<option value="">None</option>
+		</select>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Add a New Publisher</label>
+		<input class='form-control' type='text' ng-model="newPublisher.publisherName" placeholder='Publisher Name'>
+		<input class='form-control' type='text' ng-model="newPublisher.publisherAddress" placeholder='Publiser Address'>
+		<input class='form-control' type='text' ng-model="newPublisher.publisherPhone" placeholder='Publiser Phone'>
+		<button type='button' class='btn btn-primary' ng-click='addPublisher()'>Add Publisher</button>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Pick Genres:</label>
+		<select multiple class="form-control" ng-model="book.genres" ng-options="g.genreName for g in allGenres track by g.genreId"></select>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Add a New Genre</label>
+		<input class='form-control' type='text' ng-model="newGenre.genreName" placeholder='Genre Name'>
+		<button type='button' class='btn btn-primary' ng-click='addGenre()'>Add Genre</button>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Pick Authors:</label>
+		<select multiple class="form-control" ng-model="book.authors" ng-options="a.authorName for a in allAuthors track by a.authorId"></select>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Add a New Author</label>
+		<input class='form-control' type='text' ng-model="newAuthor.authorName" placeholder='Author Name'>
+		<button type='button' class='btn btn-primary' ng-click='addAuthor()'>Add Author</button>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary" ng-click="ok()">Update</button>
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

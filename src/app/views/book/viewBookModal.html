@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" >View Book Detail</h4>
+</div>
+<div class="modal-body" id="modal-body">
+	<div class='form-group'>
+		<label class='control-label'>Book Title:</label>
+		<p class='form-control-static'>{{book.title}}</p>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Publisher:</label>
+		<p class='form-control-static'>{{book.publisher.publisherName}}</p>
+	</div>
+
+	<div class='form-group'>
+		<label class='control-label'>Genres:</label>
+		<p class='form-control-static' ng-repeat='genre in book.genres'>{{genre.genreName}}</p>
+	</div>
+
+	<div class='form-group'>
+		<label class='control-label'>Authors:</label>
+		<p class='form-control-static' ng-repeat='author in book.authors'>{{author.authorName}}</p>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

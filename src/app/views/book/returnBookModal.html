@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" >Borrower <strong>{{borrower.name}}<strong></h4>
+</div>
+<div class="modal-body">
+	<table class='table'>
+		<tr><th>#</th><th>Book</th><th>Branch</th><th>Date Out</th><th>Due Date</th><th>Return</th></tr>
+		<tr ng-repeat="l in borrower.loans">
+			<td>{{$index+1}}</td>
+			<td>{{l.book.title}}</td>
+			<td>{{l.branch.branchName}}</td>
+			<td>{{l.dateOut}}</td>
+			<td>{{l.dueDate}}</td>
+			<td><button class='btn btn-primary' ng-click='ok(l)'>Return</button></td>
+		</tr>
+	</table>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

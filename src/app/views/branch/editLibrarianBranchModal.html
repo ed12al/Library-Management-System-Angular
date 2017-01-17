@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title">Edit Branch</h4>
+</div>
+<div class="modal-body">
+	<div class="form-group">
+		<label class="control-label">Enter Branch Name to Edit:</label>
+		<input class="form-control" type="text" ng-model="branch.branchName">
+	</div>
+	<div class="form-group">
+		<label class="control-label">Enter Branch Address to Edit:</label>
+		<input class="form-control" type="text" ng-model="branch.branchAddress">
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>BookCopy:</label>
+		<table class='table'>
+			<tr><th>#</th><th>Book Title</th><th># of Copy</th></tr>
+			<tr ng-repeat="bc in branch.bookCopy">
+				<td>{{$index+1}}</td>
+				<td>{{bc.book.title}}</td>
+				<td><input type="number" step="any" min="0" class="form-control" ng-model="bc.noOfCopies"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="form-group">
+		<label class='control-label'>Add A BookCopy:</label>
+		<input type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1" ng-model="searchText">
+		<ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+		<table class='table'>
+			<tr><th>#</th><th>Book Title</th><th>Add</th></tr>
+			<tr ng-repeat="book in allBooks | filter:searchText | startFrom: (currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
+				<td>{{$index+1}}</td>
+				<td>{{book.title}}</td>
+				<td><button type="button" class="btn btn-primary" ng-click="addBookCopy(book)">Add</button></td>
+			</tr>
+		</table>
+	<div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary" ng-click="ok()">Update</button>
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>

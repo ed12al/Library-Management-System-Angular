@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" >View Borrower Detail</h4>
+</div>
+<div class="modal-body" id="modal-body">
+	<div class='form-group'>
+		<label class='control-label'>Borrower Name:</label>
+		<p class='form-control-static'>{{borrower.name}}</p>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Borrower Address:</label>
+		<p class='form-control-static'>{{borrower.address}}</p>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Borrower Phone:</label>
+		<p class='form-control-static'>{{borrower.phone}}</p>
+	</div>
+	<div class='form-group'>
+		<label class='control-label'>Loans:</label>
+		<table class='table'>
+			<tr><th>#</th><th>Book Title</th><th>Branch Name</th><th>Date Out</th><th>Date In</th><th>Due Date</th></tr>
+			<tr ng-repeat='l in borrower.loans'>
+				<td>{{$index+1}}</td>
+				<td>{{l.book.title}}</td>
+				<td>{{l.branch.branchName}}</td>
+				<td>{{l.dateOut}}</td>
+				<td>{{l.dateIn}}</td>
+				<td>{{l.dueDate}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" ng-click="close()">Close</button>
+</div>
